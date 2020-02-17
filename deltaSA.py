@@ -52,7 +52,8 @@ for f in range(1, len(factors_sorted)+1):
     # Run model for all samples    
     output_Set2 = [fish_game(*X_Set2[j,:]) for j in range(nsamples)]
     output_Set3 = [fish_game(*X_Set3[j,:]) for j in range(nsamples)]
-
+    
+    # Calculate coefficients of correlation
     coefficient_S1_S2 = np.corrcoef(output,output_Set2)[0][1]
     coefficient_S1_S3 = np.corrcoef(output,output_Set3)[0][1]
     
