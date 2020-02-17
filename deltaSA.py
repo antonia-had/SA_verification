@@ -53,22 +53,22 @@ for f in range(1, len(factors_sorted)+1):
     output_Set2 = [fish_game(*X_Set2[j,:]) for j in range(nsamples)]
     output_Set3 = [fish_game(*X_Set3[j,:]) for j in range(nsamples)]
 
-    coefficient_S1_S2 = np.corrcoef(np.sort(output),np.sort(output_Set2))[0][1]
-    coefficient_S1_S3 = np.corrcoef(np.sort(output),np.sort(output_Set3))[0][1]
+    coefficient_S1_S2 = np.corrcoef(output,output_Set2)[0][1]
+    coefficient_S1_S3 = np.corrcoef(output,output_Set3)[0][1]
     
     # Plot outputs and correlation
     fig =  plt.figure(figsize=(18,12))
     ax1 = fig.add_subplot(1,2,1)
-    ax1.plot(np.sort(output),np.sort(output))
-    ax1.scatter(np.sort(output),np.sort(output_Set2))
+    ax1.plot(output,output)
+    ax1.scatter(output,output_Set2)
     ax1.set_xlabel("Set 1",fontsize=14)
     ax1.set_ylabel("Set 2",fontsize=14)
     ax1.tick_params(axis='both', which='major', labelsize=12)
     ax1.set_title('Set 1 vs Set 2 - ' + str(f) + ' top factors',fontsize=20)
     ax1.text(0.05,0.95,'R= '+"{0:.3f}".format(coefficient_S1_S2),transform = ax1.transAxes,fontsize=16)
     ax2 = fig.add_subplot(1,2,2)
-    ax2.plot(np.sort(output),np.sort(output))
-    ax2.scatter(np.sort(output),np.sort(output_Set3))
+    ax2.plot(output,output)
+    ax2.scatter(output,output_Set3)
     ax2.set_xlabel("Set 1",fontsize=14)
     ax2.set_ylabel("Set 3",fontsize=14)
     ax2.tick_params(axis='both', which='major', labelsize=12)
